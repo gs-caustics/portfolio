@@ -878,7 +878,7 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
     .hero-caption{
-        font-size: 1rem;
-        top:87%;
+        font-size: 0.8rem;
+        top:86%;
     }
 }
