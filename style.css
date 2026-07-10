@@ -204,11 +204,11 @@ nav {
 
 .hero-caption {
     position: absolute;
-    bottom: 1.8%;
+    bottom: 1.2%;
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Permanent Marker', cursive;
-    font-size: 7cqw;
+    font-size: 6cqw;
     color: #205896;
     z-index: 2;
     white-space: nowrap;
