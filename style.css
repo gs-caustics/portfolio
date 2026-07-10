@@ -17,6 +17,7 @@ body {
     background-size: 18px 18px;
     min-height: 100vh;
     position: relative;
+    color-scheme: light;
 }
 
 #caustics-bg {
