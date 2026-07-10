@@ -156,6 +156,7 @@ nav {
     position: relative;
     width: 90%;
     aspect-ratio: 1247 / 1001;
+    container-type: inline-size;
 }
 
 .hero-illustration-img {
@@ -203,11 +204,11 @@ nav {
 
 .hero-caption {
     position: absolute;
-    bottom: 3.5%;
+    bottom: 2%;
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Permanent Marker', cursive;
-    font-size: 1.4rem;
+    font-size: 7cqw;
     color: #205896;
     z-index: 2;
     white-space: nowrap;
@@ -759,10 +760,10 @@ footer {
     .contact-notebook {
         max-width: 650px;
     }
-    .hero-caption{
+    /*.hero-caption{
         font-size:2.5rem;
         top:88%
-    }
+    }*/
     .hero-greeting {
         font-size: 4rem;
     }
@@ -779,10 +780,10 @@ footer {
     .contact-notebook {
         max-width: 750px;
     }
-    .hero-caption{
+   /* .hero-caption{
         font-size:3rem;
         top:88%
-    }
+    }*/
 }
 
 /* Tablet */
@@ -815,9 +816,9 @@ footer {
         max-width: 500px;
         margin: 0 auto;
     }
-    .hero-caption{
+   /* .hero-caption{
         top:88%;
-    }
+    }*/
     .portfolio-grid {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -877,8 +878,8 @@ footer {
     .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    .hero-caption{
+    /*.hero-caption{
         font-size: 0.8rem;
         top:86%;
-    }
+    }*/
 }
