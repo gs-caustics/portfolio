@@ -512,7 +512,7 @@ nav {
     max-width: 520px;
     margin-left: auto;
     aspect-ratio: 1 / 1;
-    font-size: clamp(0.4rem, 3.5cqw, 1rem);
+    font-size: 3.5cqw;
     container-type: inline-size;
 }
 
