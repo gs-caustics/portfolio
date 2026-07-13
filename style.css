@@ -546,7 +546,7 @@ nav {
 }
 
 .form-group label {
-    font-size: clamp(0.8rem, 5cqw, 1rem);
+    font-size: 5cqw;
     font-family: 'Permanent Marker', cursive;
     color: #205896;
     margin-bottom: 1px;
@@ -560,14 +560,14 @@ nav {
     border-bottom: 1px solid rgba(32, 88, 150, 0.25);
     background: transparent;
     font-family: 'Onest', sans-serif;
-    font-size: clamp(0.6rem, 3.5cqw, 0.78rem);
+    font-size: 3.5cqw;
     color: #2d2d2d;
     flex: 1;
 }
 
 .form-group textarea {
     resize: none;
-    height: clamp(20px, 8cqw, 50px);
+    height: 8cqw;
 }
 
 .submit-btn {
@@ -576,7 +576,7 @@ nav {
     padding: 0.35rem 1rem;
     border: none;
     font-family: 'Onest', sans-serif;
-    font-size: clamp(0.4rem, 2.5cqw, 0.7rem);
+    font-size: 2.5cqw;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     cursor: pointer;
