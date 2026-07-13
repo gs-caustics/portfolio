@@ -881,4 +881,7 @@ footer {
         font-size: 0.8rem;
         top:86%;
     }*/
+    .contact-notebook {
+        max-width: 360px;
+    }
 }
