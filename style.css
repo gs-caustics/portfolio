@@ -224,16 +224,16 @@ nav {
 
 .hero-greeting {
     font-family: 'Permanent Marker', serif;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 600;
-    color: #797979;
+    color: #C95050;
     margin: 0;
     line-height: 1.2;
 }
 
 .hero-welcome {
     font-family: 'Fraunces', serif;
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     font-weight: 900;
     color: #205896;
     margin: 0;
@@ -372,7 +372,7 @@ nav {
 
 .section-title {
     font-family: 'Fraunces', serif;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: #205896;
     margin-bottom: 0.5rem;
@@ -512,7 +512,7 @@ nav {
     max-width: 520px;
     margin-left: auto;
     aspect-ratio: 1 / 1;
-    font-size: 3.5cqw;
+    font-size: 3cqw;
     container-type: inline-size;
 }
 
