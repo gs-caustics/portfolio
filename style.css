@@ -204,7 +204,7 @@ nav {
 
 .hero-caption {
     position: absolute;
-    bottom: 3.2%;
+    bottom: 2.9%;
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Permanent Marker', cursive;
@@ -533,6 +533,11 @@ nav {
     display: block;
 }
 
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
 .contact-form {
     position: absolute;
     top: 20%;
@@ -540,28 +545,23 @@ nav {
     right: 12%;
     display: flex;
     flex-direction: column;
-    gap: 3.0cqw;
+    gap: 3cqw;
     border: none;
     background: transparent;
     padding: 0;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
 }
 
 .form-group label {
     font-size: 4cqw;
     font-family: 'Permanent Marker', cursive;
     color: #1a3d6b;
-    margin-bottom: 1px;
+    margin-bottom: 0.5cqw;
 }
 
 .form-group input,
 .form-group textarea {
     width: 80%;
-    padding: 0.15rem 0.2rem;
+    padding: 0.5cqw 0.8cqw;
     border: none;
     border-bottom: 1px solid rgba(26, 61, 107, 0.25);
     background: transparent;
@@ -573,13 +573,13 @@ nav {
 
 .form-group textarea {
     resize: none;
-    height: 8cqw;
+    height: 6cqw;
 }
 
 .submit-btn {
     background: #1a3d6b;
     color: #f7f6f1;
-    padding: 0.35rem 1rem;
+    padding: 1cqw 2cqw;
     border: none;
     border-radius: 999px;
     font-family: 'Onest', sans-serif;
@@ -589,7 +589,7 @@ nav {
     cursor: pointer;
     width: 60%;
     align-self: center;
-    margin-top: 2%;
+    margin-top: 2cqw;
 }
 
 .submit-btn:hover {
