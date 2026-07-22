@@ -204,11 +204,11 @@ nav {
 
 .hero-caption {
     position: absolute;
-    bottom: 1.8%;
+    bottom: 0.5%;
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Permanent Marker', cursive;
-    font-size: 7cqw;
+    font-size: 5.5cqw;
     color: #205896;
     z-index: 2;
     white-space: nowrap;
@@ -223,10 +223,10 @@ nav {
 }
 
 .hero-greeting {
-    font-family: 'Permanent Marker', serif;
+    font-family: 'Fraunces', serif;
     font-size: 1.8rem;
     font-weight: 400;
-    color: #797979;
+    color: #205896;
     margin: 0;
     line-height: 1.2;
 }
@@ -535,7 +535,7 @@ nav {
 
 .contact-form {
     position: absolute;
-    top: 24%;
+    top: 20%;
     left: 30%;
     right: 12%;
     display: flex;
@@ -552,7 +552,7 @@ nav {
 }
 
 .form-group label {
-    font-size: 5cqw;
+    font-size: 4cqw;
     font-family: 'Permanent Marker', cursive;
     color: #205896;
     margin-bottom: 1px;
@@ -566,7 +566,7 @@ nav {
     border-bottom: 1px solid rgba(32, 88, 150, 0.25);
     background: transparent;
     font-family: 'Onest', sans-serif;
-    font-size: 3.5cqw;
+    font-size: 3cqw;
     color: #2d2d2d;
     flex: 1;
 }
@@ -581,6 +581,7 @@ nav {
     color: #f7f6f1;
     padding: 0.35rem 1rem;
     border: none;
+    border-radius: 999px;
     font-family: 'Onest', sans-serif;
     font-size: 2.5cqw;
     text-transform: uppercase;
@@ -732,7 +733,6 @@ footer {
    RESPONSIVE
    ===================== */
 
-/* Large screens — 6 columns only above 1930px */
 @media (min-width: 1930px) {
     .portfolio-grid {
         grid-template-columns: repeat(6, 1fr);
