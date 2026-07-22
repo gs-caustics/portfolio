@@ -224,7 +224,7 @@ nav {
 
 .hero-greeting {
     font-family: 'Onest', sans-serif;
-    font-size: 1.8rem;
+    font-size: 3rem;
     font-weight: 400;
     color: #be5040;
     margin: 0;
@@ -233,7 +233,7 @@ nav {
 
 .hero-welcome {
     font-family: 'Onest', sans-serif;
-    font-size: 1.8rem;
+    font-size: 3rem;
     font-weight: 700;
     color: #1a3d6b;
     margin: 0;
@@ -242,11 +242,11 @@ nav {
 
 .hero-description {
     font-family: 'Onest', sans-serif;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     font-weight: 400;
     color: #2d2d2d;
     line-height: 1.7;
-    margin: 1rem 0 0 0;
+    margin: 1.5rem 0 0 0;
     max-width: 500px;
 }
 
