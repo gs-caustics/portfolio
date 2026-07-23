@@ -267,7 +267,25 @@ if (document.getElementById('portfolio-grid')) {
         contactNavLink.addEventListener('click', () => animateUnderline('underline-contact'));
     }
 }
+// Globe (About section)
+if (document.getElementById('globe')) {
+    Promise.all([
+        fetch('basemap.json').then(r => r.json()),
+        fetch('points.json').then(r => r.json())
+    ]).then(([BASEMAP, POINTS]) => {
+        // paste all the globe JS here without the const declarations for BASEMAP and POINTS
+    });
+}
 
+// CV Modal
+const openCvBtn = document.getElementById('open-cv');
+const cvModal = document.getElementById('cv-modal');
+const closeCvBtn = document.getElementById('close-cv');
+if (openCvBtn && cvModal) {
+    openCvBtn.addEventListener('click', () => cvModal.style.display = 'flex');
+    closeCvBtn.addEventListener('click', () => cvModal.style.display = 'none');
+    cvModal.addEventListener('click', e => { if (e.target === cvModal) cvModal.style.display = 'none'; });
+}
 // =====================
 // PROJECT PAGE ONLY
 // =====================
