@@ -378,6 +378,23 @@ nav {
     color: #1a3d6b;
 }
 
+.globe-and-info {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.globe-wrap {
+    flex: 0 0 340px;
+}
+
+#info-wrap {
+    flex: 1;
+    min-width: 200px;
+    padding-top: 0;
+}
+
 /* Portfolio Section */
 .portfolio {
     scroll-margin-top: 80px;
