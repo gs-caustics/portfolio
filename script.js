@@ -273,7 +273,164 @@ if (document.getElementById('globe')) {
         fetch('basemap.json').then(r => r.json()),
         fetch('points.json').then(r => r.json())
     ]).then(([BASEMAP, POINTS]) => {
-        // paste all the globe JS here without the const declarations for BASEMAP and POINTS
+        const W = 340, H = 340;
+        const svg = d3.select("#globe");
+        const BASE_SCALE = 160;
+        let currentScale = BASE_SCALE;
+        let currentIdx = -1;
+        const proj = d3.geoOrthographic().scale(BASE_SCALE).translate([W/2, H/2]).clipAngle(90).rotate([0, -30, 0]);
+        const path = d3.geoPath().projection(proj);
+        const graticule = d3.geoGraticule().step([15, 15]);
+
+        const defs = svg.append("defs");
+        defs.append("clipPath").attr("id", "sphereClip").append("circle").attr("id", "clipCircle").attr("cx", W/2).attr("cy", H/2).attr("r", BASE_SCALE);
+
+        const marker = defs.append("marker")
+            .attr("id", "arrowhead")
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 5).attr("refY", 0)
+            .attr("markerWidth", 8).attr("markerHeight", 8)
+            .attr("markerUnits", "userSpaceOnUse")
+            .attr("orient", "auto");
+        marker.append("path").attr("d", "M0,-5L10,0L0,5").attr("fill", "#be5040");
+
+        const oceanCircle = svg.append("circle").attr("cx", W/2).attr("cy", H/2).attr("r", BASE_SCALE).attr("fill", "#f7f6f1").attr("stroke", "#1a3d6b").attr("stroke-width", 1);
+        const globeG = svg.append("g").attr("clip-path", "url(#sphereClip)");
+        const gratG = globeG.append("path").datum(graticule()).attr("fill", "none").attr("stroke", "#1a3d6b").attr("stroke-width", 0.4).attr("opacity", 0.15);
+        const landG = globeG.append("g");
+        landG.selectAll("path").data(BASEMAP.features).enter().append("path").attr("fill", "#1a3d6b").attr("stroke", "#f7f6f1").attr("stroke-width", 0.5);
+        const arcG = globeG.append("g");
+        const ptsG = svg.append("g").attr("clip-path", "url(#sphereClip)");
+
+        function isVisible(d) {
+            const r = proj.rotate();
+            return d3.geoDistance([d.lng, d.lat], [-r[0], -r[1]]) < Math.PI/2;
+        }
+
+        function redraw() {
+            const viewR = Math.min(W, H)/2 - 2;
+            oceanCircle.attr("r", Math.min(currentScale, viewR));
+            d3.select("#clipCircle").attr("r", Math.min(currentScale, viewR));
+            proj.scale(currentScale);
+            gratG.attr("d", path);
+            landG.selectAll("path").attr("d", path);
+            arcG.selectAll("path").attr("d", path);
+            const sel = ptsG.selectAll("circle").data(POINTS);
+            sel.enter().append("circle")
+                .attr("r", 4).attr("fill", "#be5040").attr("stroke", "#f7f6f1").attr("stroke-width", 0.8)
+                .style("cursor", "pointer")
+                .on("click", (e, d) => { e.stopPropagation(); const idx = POINTS.indexOf(d); showInfo(idx, idx > currentIdx); })
+                .on("mouseover", function() { d3.select(this).attr("r", 6); })
+                .on("mouseout", function() { d3.select(this).attr("r", 4); })
+                .merge(sel)
+                .attr("cx", d => { const c = proj([d.lng, d.lat]); return c ? c[0] : -999; })
+                .attr("cy", d => { const c = proj([d.lng, d.lat]); return c ? c[1] : -999; })
+                .attr("opacity", d => isVisible(d) ? 1 : 0)
+                .attr("pointer-events", d => isVisible(d) ? "auto" : "none");
+        }
+        redraw();
+
+        function computeScale(a, b) {
+            if (!a || !b) return BASE_SCALE;
+            const dist = d3.geoDistance([a.lng, a.lat], [b.lng, b.lat]);
+            return Math.max(160, Math.min(3000, 180/Math.max(0.02, dist)));
+        }
+
+        function showInfo(idx, forward) {
+            const prevIdx = currentIdx;
+            currentIdx = idx;
+            const d = POINTS[idx];
+            document.getElementById("info").innerHTML =
+                '<div style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:#be5040;margin-bottom:0.5rem;font-weight:600;">' + d.year + '</div>' +
+                '<div style="font-size:1.3rem;color:#1a3d6b;font-weight:700;margin-bottom:0.8rem;line-height:1.2;">' + d.name + '</div>' +
+                '<div style="font-size:0.9rem;color:#2d2d2d;line-height:1.6;">' + d.description + '</div>';
+            document.getElementById("counter").textContent = (idx + 1) + " / " + POINTS.length;
+            arcG.selectAll("path").remove();
+
+            let targetScale = BASE_SCALE;
+            if (forward && prevIdx >= 0 && POINTS[prevIdx]) {
+                targetScale = computeScale(POINTS[prevIdx], d);
+            } else if (idx === 0) {
+                targetScale = BASE_SCALE;
+            } else {
+                targetScale = Math.max(currentScale, 500);
+            }
+
+            let target;
+            if (forward && prevIdx >= 0 && POINTS[prevIdx]) {
+                const midLng = (POINTS[prevIdx].lng + d.lng)/2;
+                const midLat = (POINTS[prevIdx].lat + d.lat)/2;
+                target = [-midLng, -midLat];
+            } else {
+                target = [-d.lng, -d.lat];
+            }
+
+            d3.transition().duration(700).tween("view", () => {
+                const r = d3.interpolate(proj.rotate(), [target[0], target[1], 0]);
+                const s = d3.interpolate(currentScale, targetScale);
+                return t => { proj.rotate(r(t)); currentScale = s(t); redraw(); };
+            }).on("end", () => {
+                if (forward && prevIdx >= 0 && POINTS[prevIdx]) {
+                    const from = [POINTS[prevIdx].lng, POINTS[prevIdx].lat];
+                    const to = [d.lng, d.lat];
+                    const interp = d3.geoInterpolate(from, to);
+                    const shortEnd = interp(0.95);
+                    const arc = { type: "LineString", coordinates: [from, shortEnd] };
+                    const arcPath = arcG.append("path").datum(arc)
+                        .attr("fill", "none").attr("stroke", "#be5040").attr("stroke-width", 1.5)
+                        .attr("d", path);
+                    const len = arcPath.node().getTotalLength();
+                    if (len > 0) {
+                        arcPath.attr("stroke-dasharray", len + " " + len)
+                            .attr("stroke-dashoffset", len)
+                            .transition().duration(500)
+                            .attr("stroke-dashoffset", 0)
+                            .on("end", () => { arcPath.attr("marker-end", "url(#arrowhead)"); });
+                    }
+                }
+            });
+        }
+
+        document.getElementById("prev").addEventListener("click", () => {
+            const prevIdx = (currentIdx - 1 + POINTS.length) % POINTS.length;
+            showInfo(prevIdx, false);
+        });
+        document.getElementById("next").addEventListener("click", () => {
+            const isLast = currentIdx === POINTS.length - 1;
+            const nextIdx = (currentIdx + 1) % POINTS.length;
+            showInfo(nextIdx, !isLast);
+        });
+        document.getElementById("reset").addEventListener("click", () => {
+            arcG.selectAll("path").remove();
+            d3.transition().duration(700).tween("view", () => {
+                const s = d3.interpolate(currentScale, BASE_SCALE);
+                return t => { currentScale = s(t); redraw(); };
+            });
+        });
+
+        showInfo(0, false);
+
+        let dragging = false, startR, startP;
+        svg.on("mousedown", function(e) {
+            dragging = true;
+            startR = proj.rotate();
+            startP = [e.clientX, e.clientY];
+            svg.style("cursor", "grabbing");
+        });
+        d3.select(window).on("mousemove.globe", function(e) {
+            if (!dragging) return;
+            const dx = e.clientX - startP[0], dy = e.clientY - startP[1];
+            proj.rotate([startR[0] + dx*0.4, startR[1] - dy*0.4, startR[2]]);
+            redraw();
+        });
+        d3.select(window).on("mouseup.globe", function() { dragging = false; svg.style("cursor", "grab"); });
+
+        svg.node().addEventListener("wheel", function(e) {
+            e.preventDefault();
+            const delta = -e.deltaY * 0.8;
+            currentScale = Math.max(80, Math.min(2000, currentScale + delta));
+            redraw();
+        }, { passive: false });
     });
 }
 
