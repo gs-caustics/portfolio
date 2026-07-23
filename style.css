@@ -270,6 +270,204 @@ nav {
     height: 20px;
     overflow: visible;
 }
+/* About Section */
+.about {
+    scroll-margin-top: 80px;
+    padding: 40px 0;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 340px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.about-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.about-name {
+    font-family: 'Onest', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a3d6b;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.about-section {
+    margin: 0;
+}
+
+.about-sublabel {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #aaa;
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+}
+
+.about-langs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.95rem;
+    color: #2d2d2d;
+    line-height: 1.7;
+}
+
+.lang-name {
+    color: #1a3d6b;
+    font-weight: 600;
+}
+
+.about-buttons {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #1a3d6b;
+    color: #f7f6f1;
+    padding: 0.5rem 1.2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid #1a3d6b;
+    cursor: pointer;
+    font-family: 'Onest', sans-serif;
+    transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+    background: #122b4d;
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: #1a3d6b;
+    padding: 0.5rem 1.2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid #1a3d6b;
+    cursor: pointer;
+    font-family: 'Onest', sans-serif;
+    transition: background 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(26,61,107,0.06);
+}
+
+/* Globe */
+.globe-wrap {
+    width: 340px;
+}
+
+.about-attribution {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+#info-wrap {
+    padding-top: 1rem;
+}
+
+#info {
+    min-height: 120px;
+}
+
+#nav-globe {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1rem;
+    align-items: center;
+}
+
+#nav-globe button {
+    background: transparent;
+    border: 1px solid #1a3d6b;
+    color: #1a3d6b;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#reset {
+    margin-left: 0.5rem;
+}
+
+#counter {
+    font-size: 0.75rem;
+    color: #888;
+    letter-spacing: 0.05em;
+    min-width: 38px;
+    text-align: center;
+}
+
+/* CV Modal */
+.cv-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.75);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.cv-modal-inner {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.cv-modal-inner img {
+    max-width: 100%;
+    max-height: 90vh;
+    display: block;
+    border-radius: 4px;
+}
+
+.cv-close {
+    position: absolute;
+    top: -3rem;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: #f7f6f1;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0.5rem;
+}
 
 /* Portfolio header with filters */
 .portfolio-header {
@@ -378,22 +576,6 @@ nav {
     color: #1a3d6b;
 }
 
-.globe-and-info {
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-    flex-wrap: wrap;
-}
-
-.globe-wrap {
-    flex: 0 0 340px;
-}
-
-#info-wrap {
-    flex: 1;
-    min-width: 200px;
-    padding-top: 0;
-}
 
 /* Portfolio Section */
 .portfolio {
@@ -409,214 +591,6 @@ nav {
     margin-bottom: 0.5rem;
 }
 
-/* About Section */
-.about {
-    scroll-margin-top: 80px;
-    padding: 40px 0;
-}
-
-.about-content {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 3rem;
-    align-items: start;
-}
-
-.about-left {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-}
-
-.about-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #888;
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-}
-
-.about-attribution {
-    font-size: 0.75rem;
-    color: #888;
-    margin-top: 0.5rem;
-}
-
-#info-wrap {
-    margin-top: 1.5rem;
-    width: 100%;
-    max-width: 340px;
-}
-
-#info {
-    min-height: 120px;
-}
-
-#nav-globe {
-    display: flex;
-    gap: 0.8rem;
-    margin-top: 1rem;
-    align-items: center;
-}
-
-#nav-globe button {
-    background: transparent;
-    border: 1px solid #1a3d6b;
-    color: #1a3d6b;
-    width: 32px;
-    height: 32px;
-    border-radius: 999px;
-    cursor: pointer;
-    font-size: 1rem;
-    line-height: 1;
-    padding: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#reset {
-    margin-left: 0.5rem;
-}
-
-#counter {
-    font-size: 0.75rem;
-    color: #888;
-    letter-spacing: 0.05em;
-    min-width: 38px;
-    text-align: center;
-}
-
-.about-right {
-    padding-top: 2rem;
-}
-
-.about-name {
-    font-family: 'Onest', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1a3d6b;
-    margin: 0 0 1.5rem 0;
-    line-height: 1.2;
-}
-
-.about-section {
-    margin-bottom: 2rem;
-}
-
-.about-sublabel {
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #aaa;
-    font-weight: 500;
-    margin-bottom: 0.6rem;
-}
-
-.about-langs {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    font-size: 0.95rem;
-    color: #2d2d2d;
-    line-height: 1.7;
-}
-
-.lang-name {
-    color: #1a3d6b;
-    font-weight: 600;
-}
-
-.about-buttons {
-    display: flex;
-    gap: 0.6rem;
-    flex-wrap: wrap;
-}
-
-.btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: #1a3d6b;
-    color: #f7f6f1;
-    padding: 0.5rem 1.2rem;
-    border-radius: 999px;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
-    border: 1px solid #1a3d6b;
-    cursor: pointer;
-    font-family: 'Onest', sans-serif;
-    transition: background 0.2s ease;
-}
-
-.btn-primary:hover {
-    background: #122b4d;
-}
-
-.btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: transparent;
-    color: #1a3d6b;
-    padding: 0.5rem 1.2rem;
-    border-radius: 999px;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
-    border: 1px solid #1a3d6b;
-    cursor: pointer;
-    font-family: 'Onest', sans-serif;
-    transition: background 0.2s ease;
-}
-
-.btn-secondary:hover {
-    background: rgba(26,61,107,0.06);
-}
-
-/* CV Modal */
-.cv-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.75);
-    z-index: 2000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-}
-
-.cv-modal-inner {
-    position: relative;
-    max-width: 90%;
-    max-height: 90%;
-}
-
-.cv-modal-inner img {
-    max-width: 100%;
-    max-height: 90vh;
-    display: block;
-    border-radius: 4px;
-}
-
-.cv-close {
-    position: absolute;
-    top: -3rem;
-    right: 0;
-    background: transparent;
-    border: none;
-    color: #f7f6f1;
-    font-size: 2rem;
-    cursor: pointer;
-    line-height: 1;
-    padding: 0.5rem;
-}
 
 /* Portfolio Grid — default 5 columns */
 .portfolio-grid {
