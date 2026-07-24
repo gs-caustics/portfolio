@@ -82,10 +82,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         document.querySelector('.nav-links').classList.remove('open');
     });
 });
-
-// =====================
 // INDEX PAGE ONLY
-// =====================
 if (document.getElementById('portfolio-grid')) {
 
     fetch('projects.csv')
@@ -443,9 +440,54 @@ if (openCvBtn && cvModal) {
     closeCvBtn.addEventListener('click', () => cvModal.style.display = 'none');
     cvModal.addEventListener('click', e => { if (e.target === cvModal) cvModal.style.display = 'none'; });
 }
-// =====================
+
+//MAKE GLOBE HANDLE TOUCH:
+// Touch support
+svg.node().addEventListener("touchstart", function(e) {
+    if (e.touches.length !== 1) return;
+    dragging = true;
+    startR = proj.rotate();
+    startP = [e.touches[0].clientX, e.touches[0].clientY];
+    e.preventDefault();
+}, {passive: false});
+
+svg.node().addEventListener("touchmove", function(e) {
+    if (!dragging || e.touches.length !== 1) return;
+    const dx = e.touches[0].clientX - startP[0];
+    const dy = e.touches[0].clientY - startP[1];
+    proj.rotate([startR[0] + dx*0.4, startR[1] - dy*0.4, startR[2]]);
+    redraw();
+    e.preventDefault();
+}, {passive: false});
+
+svg.node().addEventListener("touchend", function() {
+    dragging = false;
+});
+
+// Pinch-to-zoom
+let pinchDist = null;
+svg.node().addEventListener("touchstart", function(e) {
+    if (e.touches.length === 2) {
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        pinchDist = Math.hypot(dx, dy);
+    }
+}, {passive: false});
+
+svg.node().addEventListener("touchmove", function(e) {
+    if (e.touches.length === 2 && pinchDist) {
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        const newDist = Math.hypot(dx, dy);
+        const scale = newDist / pinchDist;
+        currentScale = Math.max(80, Math.min(2000, currentScale * scale));
+        pinchDist = newDist;
+        redraw();
+        e.preventDefault();
+    }
+}, {passive: false});
 // PROJECT PAGE ONLY
-// =====================
+
 if (document.getElementById('project-content')) {
     const params = new URLSearchParams(window.location.search);
     const projectId = params.get('id');
