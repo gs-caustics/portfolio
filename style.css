@@ -219,7 +219,6 @@ nav {
     flex-direction: column;
     gap: 0.5rem;
     direction: ltr;
-    padding-left: 4rem;
 }
 
 .hero-greeting {
@@ -279,7 +278,7 @@ nav {
 .about-content {
     display: grid;
     grid-template-columns: 1fr 340px 1fr;
-    gap: 2rem;
+    gap: 1rem;
     align-items: start;
 }
 
