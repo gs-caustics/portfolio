@@ -426,6 +426,10 @@ nav {
     min-width: 38px;
     text-align: center;
 }
+/*for responsiveness on mobile*/
+#globe {
+    touch-action: none;
+}
 
 /* CV Modal */
 .cv-modal {
