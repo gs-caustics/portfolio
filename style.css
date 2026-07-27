@@ -154,7 +154,7 @@ nav {
 .hero-illustration {
     direction: ltr;
     position: relative;
-    width: 100%;
+    width: 75%;
     aspect-ratio: 1247 / 1001;
     container-type: inline-size;
 }
@@ -204,7 +204,7 @@ nav {
 
 .hero-caption {
     position: absolute;
-    bottom: 3.5%;
+    bottom: 0%;
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Permanent Marker', cursive;
