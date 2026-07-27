@@ -157,6 +157,7 @@ nav {
     width: 65%;
     aspect-ratio: 1247 / 1001;
     container-type: inline-size;
+    justify-content: center;
 }
 
 .hero-illustration-img {
@@ -270,7 +271,7 @@ nav {
     overflow: visible;
 }
 /* About Section */
-/* About Section */
+
 .about {
     scroll-margin-top: 80px;
     padding: 40px 0;
@@ -314,7 +315,7 @@ nav {
     font-size: 2rem;
     font-weight: 700;
     color: #1a3d6b;
-    margin: 0 0 1.2rem 0;
+    margin-bottom: 1.2rem;
     line-height: 1.2;
 }
 
@@ -328,7 +329,7 @@ nav {
     text-transform: uppercase;
     color: #aaa;
     font-weight: 500;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0rem;
 }
 
 .about-langs {
@@ -338,6 +339,7 @@ nav {
     font-size: 0.95rem;
     color: #2d2d2d;
     line-height: 1.7;
+    margin-bottom: 1rem;
 }
 
 .lang-name {
