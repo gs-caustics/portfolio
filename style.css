@@ -275,10 +275,10 @@ nav {
     padding: 40px 0;
 }
 .about-content {
-    display: grid;
-    grid-template-columns: 380px 400px auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     gap: 2rem;
-    justify-content: start;
 }
 
 .about-left {
@@ -286,14 +286,14 @@ nav {
 }
 
 #info-wrap {
-    flex: 0 0 auto;
-    max-width: 280px;
+    flex: 0 0 350px;
+    align-self: center;
 }
 
 .about-right {
     flex: 0 0 auto;
+    align-self: center;
 }
-
 
 .about-name {
     font-family: 'Onest', sans-serif;
