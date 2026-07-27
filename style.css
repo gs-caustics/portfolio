@@ -204,11 +204,11 @@ nav {
 
 .hero-caption {
     position: absolute;
-    bottom: 0%;
+    bottom: 3.5%;
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Permanent Marker', cursive;
-    font-size: 5.5cqw;
+    font-size: 6.5cqw;
     color: #1a3d6b;
     z-index: 2;
     white-space: nowrap;
@@ -278,21 +278,21 @@ nav {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .about-left {
     flex: 0 0 380px;
+    display: flex;
+    flex-direction: column;
 }
 
 #info-wrap {
-    flex: 0 0 350px;
-    align-self: center;
+    flex: 0 0 300px;
 }
 
 .about-right {
     flex: 0 0 auto;
-    align-self: center;
 }
 
 .about-name {
