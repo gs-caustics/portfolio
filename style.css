@@ -155,10 +155,10 @@ nav {
 .hero-illustration {
     direction: ltr;
     position: relative;
-    width: 65%;
+    width: 80%;
     aspect-ratio: 1247 / 1001;
     container-type: inline-size;
-    justify-content: center;
+    margin-left: auto;
 }
 
 .hero-illustration-img {
