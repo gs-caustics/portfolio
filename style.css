@@ -280,7 +280,11 @@ nav {
     gap: 1.5rem;
     align-items: center;
 }
-
+.about-col-left {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
 .about-left {
     flex: 0 0 380px;
     display: flex;
