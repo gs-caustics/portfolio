@@ -314,7 +314,7 @@ nav {
     text-transform: uppercase;
     color: #aaa;
     font-weight: 500;
-    margin-bottom: 0.6rem;
+    margin-bottom: 1.6rem;
 }
 
 .about-langs {
@@ -335,6 +335,7 @@ nav {
     display: flex;
     gap: 0.6rem;
     flex-wrap: wrap;
+    margin-bottom: 1.2rem;
 }
 
 .btn-primary {
