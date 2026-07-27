@@ -1030,6 +1030,7 @@ footer {
     .nav-links a {
         font-size: 2rem;
     }
+
     .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1087,4 +1088,27 @@ footer {
     .contact-notebook {
         max-width: 290px;
     }
+    .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-col-left {
+    flex-direction: column-reverse;
+    gap: 1.5rem;
+}
+
+.about-left {
+    flex: none;
+    width: 100%;
+}
+
+#info-wrap {
+    width: 100%;
+}
+
+.about-right {
+    order: 2;
+}
 }
