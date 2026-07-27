@@ -204,7 +204,7 @@ nav {
 
 .hero-caption {
     position: absolute;
-    bottom: 0%;
+    top: 18%;
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Permanent Marker', cursive;
