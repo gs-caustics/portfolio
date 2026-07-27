@@ -154,7 +154,7 @@ nav {
 .hero-illustration {
     direction: ltr;
     position: relative;
-    width: 75%;
+    width: 100%;
     aspect-ratio: 1247 / 1001;
     container-type: inline-size;
 }
@@ -277,7 +277,7 @@ nav {
 
 .about-content {
     display: grid;
-    grid-template-columns: 380px 1fr auto;
+    grid-template-columns: 380px 1fr 300px;
     gap: 2rem;
     align-items: center;
 }
