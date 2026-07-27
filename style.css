@@ -154,7 +154,7 @@ nav {
 .hero-illustration {
     direction: ltr;
     position: relative;
-    width: 75%;
+    width: 65%;
     aspect-ratio: 1247 / 1001;
     container-type: inline-size;
 }
@@ -204,7 +204,7 @@ nav {
 
 .hero-caption {
     position: absolute;
-    bottom: 3.5%;
+    bottom: 3.2%;
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Permanent Marker', cursive;
@@ -275,10 +275,10 @@ nav {
     padding: 40px 0;
 }
 .about-content {
-    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
     align-items: center;
-    justify-content: flex-start;
-    gap: 3rem;
 }
 
 .about-left {
