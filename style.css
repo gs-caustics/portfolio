@@ -278,7 +278,7 @@ nav {
 }
 
 .about-content-wrap .section-title-wrap {
-    margin-bottom: 0;
+    margin-bottom: 1rem;
 }
 
 .about-content {
@@ -308,15 +308,6 @@ nav {
 
 .about-right {
     flex: 0 0 auto;
-}
-
-.about-name {
-    font-family: 'Onest', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1a3d6b;
-    margin-bottom: 1.2rem;
-    line-height: 1.2;
 }
 
 .about-section {
